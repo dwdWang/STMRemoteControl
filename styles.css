@@ -1,0 +1,409 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 头部样式 */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* 主要内容区域 */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* 连接状态区域 */
+.connection-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.status-light {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ff4757;
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+    transition: all 0.3s ease;
+}
+
+.status-light.connected {
+    background: #2ed573;
+    box-shadow: 0 0 10px rgba(46, 213, 115, 0.5);
+}
+
+.status-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.connect-btn {
+    background: linear-gradient(45deg, #3742fa, #2f3542);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.3);
+}
+
+.connect-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(55, 66, 250, 0.4);
+}
+
+.connect-btn:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.device-info {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.device-info p {
+    margin-bottom: 5px;
+}
+
+/* 控制区域 */
+.control-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.control-section h2 {
+    margin-bottom: 20px;
+    color: #2f3542;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #3742fa;
+    padding-bottom: 10px;
+}
+
+/* LED控制样式 */
+.led-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.led-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.led-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.led-btn:hover {
+    border-color: #3742fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.2);
+}
+
+.led-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.led-indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ddd;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.led-indicator.on {
+    background: #ffa502;
+    box-shadow: 0 0 15px rgba(255, 165, 2, 0.6);
+}
+
+/* 动作按钮样式 */
+.action-btn {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.all-off-btn {
+    background: linear-gradient(45deg, #ff4757, #ff3838);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+.all-off-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+}
+
+.mode-btn, .motor-btn {
+    background: linear-gradient(45deg, #5352ed, #3742fa);
+    color: white;
+    box-shadow: 0 4px 15px rgba(83, 82, 237, 0.3);
+}
+
+.mode-btn:hover, .motor-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(83, 82, 237, 0.4);
+}
+
+.action-btn:disabled {
+    background: #ddd;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 模式控制样式 */
+.mode-controls, .motor-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mode-indicator, .motor-indicator {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.mode-indicator span:last-child,
+.motor-indicator span:last-child {
+    color: #3742fa;
+    font-weight: 600;
+}
+
+/* 消息提示样式 */
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.message.show {
+    transform: translateX(0);
+}
+
+.message.success {
+    background: linear-gradient(45deg, #2ed573, #1e90ff);
+}
+
+.message.error {
+    background: linear-gradient(45deg, #ff4757, #ff3838);
+}
+
+.message.info {
+    background: linear-gradient(45deg, #3742fa, #5352ed);
+}
+
+/* 帮助区域样式 */
+.help-section {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.help-section details {
+    cursor: pointer;
+}
+
+.help-section summary {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #3742fa;
+    padding: 10px 0;
+    outline: none;
+}
+
+.help-content {
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+.help-content h3 {
+    color: #2f3542;
+    margin: 20px 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.help-content ol, .help-content ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.help-content li {
+    margin-bottom: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .led-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .mode-controls, .motor-controls {
+        text-align: center;
+    }
+    
+    .message {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        max-width: none;
+        transform: translateY(100px);
+    }
+    
+    .message.show {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .led-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .control-section {
+        padding: 20px;
+    }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.led-btn:active {
+    animation: pulse 0.2s ease;
+}
+
+.action-btn:active {
+    animation: pulse 0.2s ease;
+}
+
+/* 加载动画 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+}
+

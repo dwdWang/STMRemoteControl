@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STM32 蓝牙控制器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>STM32 蓝牙控制器</h1>
+            <p class="subtitle">华中科技大学电信学院 硬件课设 汤梓聪袁自强王梓诺</p>
+        </header>
+
+        <main class="main-content">
+            <!-- 连接状态区域 -->
+            <section class="connection-section">
+                <div class="status-indicator">
+                    <div class="status-light" id="statusLight"></div>
+                    <span class="status-text" id="statusText">未连接</span>
+                </div>
+                <button class="connect-btn" id="connectBtn">连接蓝牙设备</button>
+                <div class="device-info" id="deviceInfo" style="display: none;">
+                    <p>设备名称: <span id="deviceName">-</span></p>
+                    <p>设备ID: <span id="deviceId">-</span></p>
+                </div>
+            </section>
+
+            <!-- LED控制区域 -->
+            <section class="control-section">
+                <h2>LED 控制</h2>
+                <div class="led-controls">
+                    <div class="led-group">
+                        <button class="led-btn" data-command="1" id="led1">
+                            <div class="led-indicator" id="ledIndicator1"></div>
+                            <span>LED 1</span>
+                        </button>
+                        <button class="led-btn" data-command="2" id="led2">
+                            <div class="led-indicator" id="ledIndicator2"></div>
+                            <span>LED 2</span>
+                        </button>
+                        <button class="led-btn" data-command="3" id="led3">
+                            <div class="led-indicator" id="ledIndicator3"></div>
+                            <span>LED 3</span>
+                        </button>
+                        <button class="led-btn" data-command="4" id="led4">
+                            <div class="led-indicator" id="ledIndicator4"></div>
+                            <span>LED 4</span>
+                        </button>
+                    </div>
+                    <button class="action-btn mode-btn" data-command="6">
+                        跑马灯模式
+                    </button>
+                </div>
+            </section>
+
+            <!-- 显示模式控制 -->
+            <section class="control-section">
+                <h2>显示模式</h2>
+                <div class="mode-controls">
+                    <button class="action-btn mode-btn" data-command="5">
+                        切换显示模式
+                    </button>
+                    <div class="mode-indicator">
+                        <span>当前模式: </span>
+                        <span id="displayMode">模式 0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 电机控制 -->
+            <section class="control-section">
+                <h2>电机控制</h2>
+                <div class="motor-controls">
+                    <button class="action-btn motor-btn" data-command="7">
+                        切换电机模式
+                    </button>
+                    <div class="motor-indicator">
+                        <span>当前模式: </span>
+                        <span id="motorMode">模式 0</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 消息提示 -->
+        <div class="message" id="message"></div>
+
+        <!-- 帮助信息 -->
+        <footer class="help-section">
+            <details>
+                <summary>使用说明</summary>
+                <div class="help-content">
+                    <h3>连接步骤：</h3>
+                    <ol>
+                        <li>确保您的STM32设备已开启并且JDY-10模块正常工作</li>
+                        <li>点击"连接蓝牙设备"按钮</li>
+                        <li>在弹出的设备列表中选择您的JDY-10设备</li>
+                        <li>连接成功后即可使用各种控制功能</li>
+                    </ol>
+                    <h3>功能说明：</h3>
+                    <ul>
+                        <li><strong>LED控制</strong>: 单独控制4个LED的开关状态</li>
+                        <li><strong>显示模式</strong>: 循环切换显示模式（0-3）</li>
+                        <li><strong>电机控制</strong>: 循环切换电机模式（0-3）</li>
+                    </ul>
+                    <h3>注意事项：</h3>
+                    <ul>
+                        <li>此应用需要在支持Web Bluetooth API的浏览器中使用</li>
+                        <li>推荐使用Chrome、Edge或Opera浏览器</li>
+                        <li>需要在HTTPS环境下运行</li>
+                    </ul>
+                </div>
+            </details>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
